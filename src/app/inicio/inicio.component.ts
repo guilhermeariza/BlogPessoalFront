@@ -1,6 +1,8 @@
+import { TemaService } from './../service/tema.service';
 import { Router } from '@angular/router';
 import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
+import { Tema } from '../model/Tema';
 
 @Component({
   selector: 'app-inicio',
@@ -9,13 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
+
+
   constructor(
     private router: Router
   ) { }
 
   ngOnInit(){
     if(environment.token == ''){
-      alert('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/entrar'])
     }
   }
